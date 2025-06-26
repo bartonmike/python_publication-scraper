@@ -20,10 +20,8 @@
 # Requirements: 
 #               Python Modules: 
 #                       biopython
-#                       fake_useragent
 #                       beautifulsoup4
 #                       habanero
-#                       selenium
 #                       gspread
 #                       oauth2client
 #                       lxml_html_clean
@@ -58,18 +56,11 @@ from Bio.Entrez import efetch, read, esummary
 ###### misc imports
 from datetime import date, timedelta
 import requests
-from fake_useragent import UserAgent # pip3 install fake_useragent
 from bs4 import BeautifulSoup # pip3 install beautifulsoup4
 import json
 from habanero import Crossref # pip3 install habanero
 import time
 import os
-
-####### google scholar imports
-from selenium import webdriver # pip3 install selenium
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 ###### gspread imports
 import gspread # pip3 install gspread
@@ -109,19 +100,23 @@ def get_best_pubdate(pubdata):
     ret_value = pubdate
     if pubdate:
         if is_full_pubmed_date(pubdate):
+            print("\nFULL PUBDATE\n")
             ret_value = pubdate
         else:
             # Try to convert if not in correct format
             converted = convert_history_date(pubdate)
             if is_full_pubmed_date(converted):
+                print("\nCONVERTED PUBDATE\n")
                 ret_value = converted
 
     elif epubdate:
             if is_full_pubmed_date(epubdate):
+                print("\nFULL EPUBDATE\n")
                 ret_value = epubdate
             else:
                 converted = convert_history_date(epubdate)
                 if is_full_pubmed_date(converted):
+                    print("\nCONVERTED EPUBDATE\n")
                     ret_value = converted
 
         # Try history[3]['date']
@@ -134,11 +129,14 @@ def get_best_pubdate(pubdata):
         if history_date:
             converted = convert_history_date(history_date)
             if is_full_pubmed_date(converted):
+                print("\nHISTORY DATE CONVERTED\n")
                 ret_value = converted
 
     else:
         # If no pubdate, epubdate, or history date, return empty string
+        print("\nNO PUBDATE FOUND\n")
         ret_value = ''
+    print(ret_value)
     # If all fail, return empty string
     return ret_value
 
