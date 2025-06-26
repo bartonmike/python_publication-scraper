@@ -22,7 +22,7 @@ This Repository stores two types of Python publication scrapers: the first is th
                        lxml_html_clean <br/><br/>
                files and other requirements: <br/>
                        client_key.json file in the same directory, containing info on a Google developer bot <br/>
-                       create_paper_scraper.py is run, which creates all the needed txt files <br/>
+                       create_publication_scraper.py is run, which creates all the needed txt files <br/>
                        bot whose details are contained in the client_key.json, has edit access to the given Google sheet <br/>
               
  Inputs: Google scholar profile codes and names, trainee names, weeks ago one wants to search.<br/>
@@ -50,7 +50,7 @@ Description: Instead of utilizing google scholar profile codes and funding codes
                        lxml_html_clean <br/><br/>
                files and other requirements: <br/>
                        client_key.json file in the same directory, containing info on a Google developer bot <br/>
-                       create_paper_scraper.py is run, which creates all the needed txt files <br/>
+                       create_publication_scraper.py is run, which creates all the needed txt files <br/>
                        bot whose details are contained in the client_key.json, has edit access to the given Google sheet <br/>
               
  Inputs: Google scholar profile codes and names, trainee names, weeks ago one wants to search.<br/>
