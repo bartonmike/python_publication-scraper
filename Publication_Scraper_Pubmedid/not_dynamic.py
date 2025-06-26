@@ -109,23 +109,19 @@ def get_best_pubdate(pubdata):
     ret_value = pubdate
     if pubdate:
         if is_full_pubmed_date(pubdate):
-            print("FULL PUBDATE\n")
             ret_value = pubdate
         else:
             # Try to convert if not in correct format
             converted = convert_history_date(pubdate)
             if is_full_pubmed_date(converted):
-                print("CONVERTED PUBDATE\n")
                 ret_value = converted
 
     elif epubdate:
             if is_full_pubmed_date(epubdate):
-                print("FULL EPUBDATE\n")
                 ret_value = epubdate
             else:
                 converted = convert_history_date(epubdate)
                 if is_full_pubmed_date(converted):
-                    print("CONVERTED EPUBDATE\n")
                     ret_value = converted
 
         # Try history[3]['date']
@@ -138,14 +134,11 @@ def get_best_pubdate(pubdata):
         if history_date:
             converted = convert_history_date(history_date)
             if is_full_pubmed_date(converted):
-                print("HISTORY DATE CONVERTED\n")
                 ret_value = converted
 
     else:
         # If no pubdate, epubdate, or history date, return empty string
-        print("NO PUBDATE FOUND\n")
         ret_value = ''
-    print(ret_value)
     # If all fail, return empty string
     return ret_value
 
