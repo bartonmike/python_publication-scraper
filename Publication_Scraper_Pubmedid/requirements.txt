@@ -1,0 +1,8 @@
+biopython
+selenium
+requests
+beautifulsoup4
+habanero
+oauth2client
+gspread
+fake_useragent
