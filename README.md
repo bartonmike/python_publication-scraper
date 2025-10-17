@@ -24,6 +24,12 @@ This Repository stores two types of Python publication scrapers: the first is th
                        client_key.json file in the same directory, containing info on a Google developer bot <br/>
                        create_publication_scraper.py is run, which creates all the needed txt files <br/>
                        bot whose details are contained in the client_key.json, has edit access to the given Google sheet <br/>
+
+All Python modules for the program are contained in the requirements.txt file <br/>
+before running the program, open the Windows command line, CD into the directory of the program, and type this command followed by pressing enter: <br/>
+```
+pip install -r requirements.txt
+```
               
  Inputs: Google scholar profile codes and names, trainee names, weeks ago one wants to search.<br/>
 
@@ -52,6 +58,12 @@ Description: Instead of utilizing google scholar profile codes and funding codes
                        client_key.json file in the same directory, containing info on a Google developer bot <br/>
                        create_publication_scraper.py is run, which creates all the needed txt files <br/>
                        bot whose details are contained in the client_key.json, has edit access to the given Google sheet <br/>
+
+All Python modules for the program are contained in the requirements.txt file <br/>
+before running the program, open the Windows command line, CD into the directory of the program, and type this command followed by pressing enter: <br/>
+```
+pip install -r requirements.txt
+```
               
  Inputs: Google scholar profile codes and names, trainee names, weeks ago one wants to search.<br/>
 
