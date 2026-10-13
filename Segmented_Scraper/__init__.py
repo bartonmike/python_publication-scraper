@@ -1,0 +1,1 @@
+"""Segmented publication scraper package."""
