@@ -7,8 +7,8 @@ Requirements
 - Python 3.9 — 3.12
 - Packages: biopython, fake_useragent, beautifulsoup4, habanero, selenium, gspread, oauth2client, lxml_html_clean, tqdm, requests
 - Chrome + matching ChromeDriver on PATH (for Selenium headless mode)
-- Google service account credentials file: `client_key.json` (in `Revised_Publication_Scraper`)
-- `sheet_name.txt`, `people.txt`, `trainees.txt`, and `date.txt` files present in `Revised_Publication_Scraper`
+- Google service account credentials file: `client_key.json`
+- `sheet_name.txt`, `people.txt`, `trainees.txt`, and `date.txt` files present in `Segmented_Scraper`
 
 Installation
 
@@ -25,7 +25,7 @@ pip install biopython fake-useragent beautifulsoup4 habanero selenium gspread oa
 
 Usage
 
-Run from the `Revised_Publication_Scraper` folder:
+Run from the `Segmented_Scraper` folder:
 
 ```powershell
 python -m segmented_scraper.main
