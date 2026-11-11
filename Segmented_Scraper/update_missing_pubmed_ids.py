@@ -99,7 +99,7 @@ def main():
         client_key_path=str(PROJECT_DIR / "client_key.json"),
         sheet_name_file=str(SHEET_NAME_FILE),
     )
-    worksheet = client.open(sheet_name).worksheet("Site Publications")
+    worksheet = client.open(sheet_name).worksheet("Publication Info")
     rows = worksheet.get_all_values()
     header_row, columns = _find_header_columns(rows)
 

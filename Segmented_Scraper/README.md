@@ -7,8 +7,7 @@ Requirements
 - Python 3.9 — 3.12
 - Packages: biopython, fake_useragent, beautifulsoup4, habanero, selenium, gspread, oauth2client, lxml_html_clean, tqdm, requests
 - Chrome + matching ChromeDriver on PATH (for Selenium headless mode)
-- Google service account credentials file: `client_key.json`
-- `sheet_name.txt`, `people.txt`, `trainees.txt`, and `date.txt` files present in `Segmented_Scraper`
+- Google service account credentials file: `client_key.json` in `Segmented_Scraper`, with edit access to the Google Sheet
 
 Installation
 
@@ -21,7 +20,17 @@ pip install --upgrade pip
 pip install biopython fake-useragent beautifulsoup4 habanero selenium gspread oauth2client lxml_html_clean tqdm requests
 ```
 
-2. Ensure `ChromeDriver` is installed and available on `PATH` and that `client_key.json` and `sheet_name.txt` are configured.
+2. Put `client_key.json` in `Segmented_Scraper` and create a Google Sheet shared with that service account.
+
+3. Run the setup script from `Segmented_Scraper` and enter the name of the existing Google Sheet:
+
+```powershell
+python create_publication_scraper.py
+```
+
+This creates the `Publication Info`, `Prompts`, `Change Log`, `Run Log`, and `Known Authors` worksheets, and creates or updates the local `sheet_name.txt`, `people.txt`, `trainees.txt`, and `date.txt` files. Existing people, trainee, and date files are preserved.
+
+4. Ensure `ChromeDriver` is installed and available on `PATH`.
 
 Usage
 
@@ -33,7 +42,7 @@ python -m segmented_scraper.main
 
 Reprocess authors for existing site publications
 
-To rebuild `Authors_dict.txt` and the author counts/aliases in the `Known Authors` worksheet from the publications already in `Site Publications`, run:
+To rebuild `Authors_dict.txt` and the author counts/aliases in the `Known Authors` worksheet from the publications already in `Publication Info`, run:
 
 ```powershell
 python process_site_publication_authors.py
@@ -43,7 +52,7 @@ This rebuild does not scrape for new publications or modify publication rows. Ex
 
 Fill missing PubMed identifiers
 
-To search PubMed for exact title matches for `journal_article` entries without a PMID in the `Site Publications` worksheet, then fill in the PMID and any available DOI/PMCID, run from this project folder:
+To search PubMed for exact title matches for `journal_article` entries without a PMID in the `Publication Info` worksheet, then fill in the PMID and any available DOI/PMCID, run from this project folder:
 
 ```powershell
 python update_missing_pubmed_ids.py
